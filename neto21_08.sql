@@ -1,6 +1,7 @@
 create table if not exists songwriter (
 	id SERIAL primary key,
-	name VARCHAR(40) not null unique
+	name VARCHAR(40) not null UNIQUE
+	genre_id integer REFERENCES genre(id) NOT null
 );
 
 create table if not exists album (
@@ -20,5 +21,4 @@ create table if not exists track (
 create table if not exists genre (
 	id SERIAL primary key,
 	name VARCHAR(40) not null,
-	songwriter_id integer references songwriter(id) not null
 );
